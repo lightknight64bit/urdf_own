@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="https://www.ros.org/xacro">
+    <ros2_control name="diff_drive_system" type="system">
+        <hardware>
+            <plugin>arduino_interface/ArduinoInterface</plugin>
+        </hardware>
+        <joint name="left_wheel_joint">
+            <command_interface name="velocity">
+                <param name="min">0</param>
+                <param name="max">80</param>
+            </command_interface>
+            
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            
+        </joint>
+        <joint name="right_wheel_joint">
+            <command_interface name="velocity">
+                <param name="min">0</param>
+                <param name="max">80</param>
+            </command_interface>
+           
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            
+        </joint>
+    </ros2_control>
+    <!--<ros2_control name="diff_drive_system" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <joint name="left_wheel_joint">
+            <command_interface name="velocity">
+                <param name="min">0</param>
+                <param name="max">80</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+        <joint name="right_wheel_joint">
+            <command_interface name="velocity">
+                <param name="min">0</param>
+                <param name="max">80</param>
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+    <gazebo>
+        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+            <parameters>$(find urdf_own)/config/my_controller.yaml</parameters>
+        </plugin>
+    </gazebo>-->
+    
+</robot>
