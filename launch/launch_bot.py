@@ -33,11 +33,11 @@ def generate_launch_description():
                         )
     d_controller_manager = TimerAction(period=3.0, actions=[controller_manager])
     
-    diff_drive_spawner = Node(package='controller_manager', executable='spawner',
+    diff_drive_spawner = Node(package='controller_manager', executable='spawner.py',
                         arguments=['diff_cont'],
                         )
     d_diff_drive_spawner = RegisterEventHandler(event_handler=OnProcessStart(target_action=controller_manager, on_start=[diff_drive_spawner]))
-    joint_cont_spawner = Node(package='controller_manager', executable='spawner',
+    joint_cont_spawner = Node(package='controller_manager', executable='spawner.py',
                         arguments=['joint_broad'],
                         )
     d_joint_cont_spawner = RegisterEventHandler(event_handler=OnProcessStart(target_action=diff_drive_spawner, on_start=[joint_cont_spawner]))
