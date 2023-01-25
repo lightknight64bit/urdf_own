@@ -29,7 +29,7 @@ def generate_launch_description():
     controller_params_file = os.path.join(get_package_share_directory(package_name), 'config', 'my_controller.yaml')
     controller_manager = Node(package='controller_manager', executable='ros2_control_node',
                         parameters=[{'robot_description': robot_description}, controller_params_file],
-                        remappings=[('/cmd_vel', '/diff_cont/cmd_vel_unstamped')]
+                        
                         
                         )
     d_controller_manager = TimerAction(period=3.0, actions=[controller_manager])
